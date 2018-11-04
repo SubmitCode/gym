@@ -1,0 +1,79 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+01_gym-checkpoint.py	../.ipynb_checkpoints\01_gym-checkpoint.py	1;"	kind:file	line:1
+01_gym.py	../src\01_gym.py	1;"	kind:file	line:1
+DQNetwork	../src\DQNetwork.py	/^class DQNetwork:$/;"	kind:class	line:5
+DQNetwork	../src\main.py	/^    DQNetwork = src.DQNetwork.DQNetwork(param.state_size, param.action_size, param.learning_rate)    $/;"	kind:variable	line:82
+DQNetwork	../src\main.py	/^import src.DQNetwork$/;"	kind:namespace	line:9
+DQNetwork.py	../src\DQNetwork.py	1;"	kind:file	line:1
+Helper	../src\Helper.py	/^class Helper:$/;"	kind:class	line:11
+Helper	../src\main.py	/^import src.Helper$/;"	kind:namespace	line:12
+Helper.py	../src\Helper.py	1;"	kind:file	line:1
+HyperParameters	../src\HyperParmeters.py	/^class HyperParameters:$/;"	kind:class	line:2
+HyperParmeters	../src\main.py	/^import src.HyperParmeters$/;"	kind:namespace	line:10
+HyperParmeters.py	../src\HyperParmeters.py	1;"	kind:file	line:1
+Memory	../src\Memory.py	/^class Memory():$/;"	kind:class	line:5
+Memory	../src\main.py	/^import src.Memory$/;"	kind:namespace	line:11
+Memory.py	../src\Memory.py	1;"	kind:file	line:1
+Test_Helper	../test\test_Helper.py	/^class Test_Helper(unittest.TestCase):$/;"	kind:class	line:5
+__init__	../src\DQNetwork.py	/^    def __init__(self, state_size, action_size, learning_rate, name='DQNetwork'):$/;"	kind:member	line:6
+__init__	../src\HyperParmeters.py	/^    def __init__(self, action_space):$/;"	kind:member	line:4
+__init__	../src\Memory.py	/^    def __init__(self, max_size):$/;"	kind:member	line:6
+action	../.ipynb_checkpoints\01_gym-checkpoint.py	/^        action = env.action_space.sample()$/;"	kind:variable	line:8
+action	../src\01_gym.py	/^        action = env.action_space.sample()$/;"	kind:variable	line:8
+add	../src\Memory.py	/^    def add(self, experience):$/;"	kind:member	line:9
+deque	../src\Helper.py	/^from collections import deque$/;"	kind:namespace	line:6
+deque	../src\Memory.py	/^from collections import deque$/;"	kind:namespace	line:2
+deque	../src\main.py	/^from collections import deque$/;"	kind:namespace	line:6
+env	../.ipynb_checkpoints\01_gym-checkpoint.py	/^env = gym.make('CartPole-v0')$/;"	kind:variable	line:2
+env	../src\01_gym.py	/^env = gym.make('CartPole-v0')$/;"	kind:variable	line:2
+env	../src\main.py	/^    env = gym.make('SpaceInvaders-v0')$/;"	kind:variable	line:71
+gym	../.ipynb_checkpoints\01_gym-checkpoint.py	/^import gym$/;"	kind:namespace	line:1
+gym	../src\01_gym.py	/^import gym$/;"	kind:namespace	line:1
+gym	../src\Helper.py	/^import gym $/;"	kind:namespace	line:1
+gym	../src\main.py	/^import gym $/;"	kind:namespace	line:1
+hlp	../test\test_Helper.py	/^import src.Helper as hlp$/;"	kind:namespace	line:2
+init_frame	../src\main.py	/^    init_frame = env.reset()$/;"	kind:variable	line:72
+initial_experience_replay	../src\main.py	/^def initial_experience_replay(params:src.HyperParmeters.HyperParameters, env:gym.Env):$/;"	kind:function	line:15
+main.py	../src\main.py	1;"	kind:file	line:1
+matplotlib	../src\Helper.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:2
+matplotlib	../src\main.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:2
+memory	../src\main.py	/^    memory = initial_experience_replay(param, env, possible_actions)$/;"	kind:variable	line:78
+np	../src\DQNetwork.py	/^import numpy as np$/;"	kind:namespace	line:2
+np	../src\Helper.py	/^import numpy as np$/;"	kind:namespace	line:5
+np	../src\Memory.py	/^import numpy as np$/;"	kind:namespace	line:3
+np	../src\main.py	/^import numpy as np$/;"	kind:namespace	line:5
+np	../test\test_Helper.py	/^import numpy as np$/;"	kind:namespace	line:3
+observation	../.ipynb_checkpoints\01_gym-checkpoint.py	/^    observation = env.reset()$/;"	kind:variable	line:4
+observation	../src\01_gym.py	/^    observation = env.reset()$/;"	kind:variable	line:4
+param	../src\main.py	/^    param = src.HyperParmeters.HyperParameters(env.action_space.n)  $/;"	kind:variable	line:76
+plt	../src\Helper.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:2
+plt	../src\main.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:2
+possible_actions	../src\main.py	/^    possible_actions = np.array(np.identity(env.action_space.n,dtype=int).tolist())$/;"	kind:variable	line:77
+preProcessImage	../src\Helper.py	/^    def preProcessImage(self, observation, startRow=25, endRow=-12, startCol=4, endCol=-12):$/;"	kind:member	line:16
+predict_action	../src\DQNetwork.py	/^    def predict_action(self, explore_start, explore_stop, decay_rate, decay_step, state, actions, possible_actions):$/;"	kind:member	line:69
+random	../src\Helper.py	/^import random$/;"	kind:namespace	line:8
+random	../src\main.py	/^import random$/;"	kind:namespace	line:8
+rgb2gray	../src\Helper.py	/^from skimage.color import rgb2gray$/;"	kind:namespace	line:3
+rgb2gray	../src\main.py	/^from skimage.color import rgb2gray$/;"	kind:namespace	line:3
+sample	../src\Memory.py	/^    def sample(self, batch_size):$/;"	kind:member	line:12
+src	../src\main.py	/^import src.DQNetwork$/;"	kind:namespace	line:9
+src	../src\main.py	/^import src.Helper$/;"	kind:namespace	line:12
+src	../src\main.py	/^import src.HyperParmeters$/;"	kind:namespace	line:10
+src	../src\main.py	/^import src.Memory$/;"	kind:namespace	line:11
+src	../test\test_Helper.py	/^import src.Helper as hlp$/;"	kind:namespace	line:2
+stack_frames	../src\Helper.py	/^    def stack_frames(self, stacked_frames, state, is_new_episode, img_shape, stack_size):$/;"	kind:member	line:23
+test_Helper.py	../test\test_Helper.py	1;"	kind:file	line:1
+test_preProcessingImage	../test\test_Helper.py	/^    def test_preProcessingImage(self):$/;"	kind:member	line:6
+tf	../src\DQNetwork.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
+tf	../src\Helper.py	/^import tensorflow as tf$/;"	kind:namespace	line:7
+tf	../src\main.py	/^import tensorflow as tf$/;"	kind:namespace	line:7
+transform	../src\Helper.py	/^from skimage import transform$/;"	kind:namespace	line:4
+transform	../src\main.py	/^from skimage import transform$/;"	kind:namespace	line:4
+unittest	../test\test_Helper.py	/^import unittest$/;"	kind:namespace	line:1
+write_op	../src\main.py	/^    write_op = tf.summary.merge_all()$/;"	kind:variable	line:85
+writer	../src\main.py	/^    writer = tf.summary.FileWriter("\/tensorboard\/dqn\/1")$/;"	kind:variable	line:83

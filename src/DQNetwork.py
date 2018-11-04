@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 
 
 class DQNetwork:
@@ -64,3 +65,29 @@ class DQNetwork:
             self.loss = tf.reduce_mean(tf.square(self.target_Q - self.Q))
             
             self.optimizer = tf.train.AdamOptimizer(self.learning_rate).minimize(self.loss) 
+
+    def predict_action(self, explore_start, explore_stop, decay_rate, decay_step, state, actions, possible_actions):
+        ## EPSILON GREEDY STRATEGY
+        # Choose action a from state s using epsilon greedy.
+        ## First we randomize a number
+        exp_exp_tradeoff = np.random.rand()
+
+        # Here we'll use an improved version of our epsilon greedy strategy used in Q-learning notebook
+        explore_probability = explore_stop + (explore_start - explore_stop) * np.exp(-decay_rate * decay_step)
+        
+        if (explore_probability > exp_exp_tradeoff):
+            # Make a random action (exploration)
+            choice = np.random.randint(possible_actions)-1
+            action = possible_actions[choice]
+            
+        else:
+            # Get action from Q-network (exploitation)
+            # Estimate the Qs values state
+            Qs = tf.sess.run(self.output, feed_dict = {self.inputs_: state.reshape((1, *state.shape))})
+            
+            # Take the biggest Q value (= the best action)
+            choice = np.argmax(Qs)
+            action = possible_actions[choice]
+                    
+                    
+        return action, explore_probability

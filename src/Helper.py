@@ -9,12 +9,15 @@ import random
 
 
 class Helper:
+
+    
+
         
-    def preProcessImage(self, observation):
+    def preProcessImage(self, observation, startRow=25, endRow=-12, startCol=4, endCol=-12):
         img = rgb2gray(observation) 
-        img = img[20:-12,4:-12] # crop image
+        img = img[startRow:endRow,startCol:endCol] # crop image
         img = img / 255 # normalize image
-        img = transform.rescale(img, 1/1.9)
+        img = transform.rescale(img, 0.5)
         return img
     
     def stack_frames(self, stacked_frames, state, is_new_episode, img_shape, stack_size):

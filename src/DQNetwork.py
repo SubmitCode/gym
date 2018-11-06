@@ -11,7 +11,7 @@ class DQNetwork:
         
         with tf.variable_scope(name):
             self.inputs_ = tf.placeholder(tf.float32, [None, *state_size], name="inputs")
-            self.actions = tf.placeholder(tf.float32, [None, self.action_size], name="actions")
+            self.actions_ = tf.placeholder(tf.float32, [None, self.action_size], name="actions")
             
             
             self.target_Q = tf.placeholder(tf.float32, [None], name="target")
@@ -60,7 +60,7 @@ class DQNetwork:
                                         units = self.action_size,
                                         activation = None)
             
-            self.Q = tf.reduce_sum(tf.multiply(self.output, self.actions))
+            self.Q = tf.reduce_sum(tf.multiply(self.output, self.actions_))
             
             self.loss = tf.reduce_mean(tf.square(self.target_Q - self.Q))
             

@@ -62,6 +62,36 @@ def initial_experience_replay(params:src.HyperParmeters.HyperParameters, env:gym
             state = next_state
     return memory, stacked_frames
 
+
+def predict_action(explore_start, explore_stop, decay_rate, decay_step, state, possible_actions, sess, DQNetwork):
+    ## EPSILON GREEDY STRATEGY
+    # Choose action a from state s using epsilon greedy.
+    ## First we randomize a number
+    exp_exp_tradeoff = np.random.rand()
+
+    # Here we'll use an improved version of our epsilon greedy strategy used in Q-learning notebook
+    explore_probability = explore_stop + (explore_start - explore_stop) * np.exp(-decay_rate * decay_step)
+    
+    if (explore_probability > exp_exp_tradeoff):
+        # Make a random action (exploration)
+        action = random.randint(1,len(possible_actions))-1
+        #action = possible_actions[choice]
+        
+        
+    else:
+        # Get action from Q-network (exploitation)
+        # Estimate the Qs values state
+        Qs = sess.run(DQNetwork.output, feed_dict = {DQNetwork.inputs_: state.reshape((1, *state.shape))})
+        
+        # Take the biggest Q value (= the best action)
+        choice = np.argmax(Qs)
+        action = choice
+        #action = possible_actions[choice]
+                
+                
+    return action, explore_probability
+
+
 def trainingLoop(params:src.HyperParmeters.HyperParameters, env:gym.Env, possible_actions:np.array,
         DQNetwork:src.DQNetwork.DQNetwork, stacked_frames, memory:src.Memory.Memory):
     
@@ -98,8 +128,7 @@ def trainingLoop(params:src.HyperParmeters.HyperParameters, env:gym.Env, possibl
                 decay_step +=1
                 
                 # Predict the action to take and take it
-                action, explore_probability = DQNetwork.predict_action(params.explore_start, 
-                    params.explore_stop, params.decay_rate, decay_step, state, possible_actions)
+                action, explore_probability = predict_action(params.explore_start, params.explore_stop, params.decay_rate, decay_step, state, possible_actions, sess, DQNetwork)
                 
                 #Perform the action and get the next_state, reward, and done information
                 next_state, reward, done, _ = env.step(action)
@@ -113,7 +142,7 @@ def trainingLoop(params:src.HyperParmeters.HyperParameters, env:gym.Env, possibl
                 # If the game is finished
                 if done:
                     # The episode ends so no next state
-                    next_state = np.zeros((110,84), dtype=np.int)
+                    next_state = np.zeros((86,72), dtype=np.int)
                     
                     next_state, stacked_frames = helper.stack_frames(stacked_frames, next_state, False, img_shape[0], img_shape[1])
 
@@ -211,9 +240,4 @@ if __name__ == "__main__":
     # Reset the graph
     tf.reset_default_graph()
     trainingLoop(param, env, possible_actions, DQNetwork, stacked_frames, memory)
-
-
-    
-
-
 

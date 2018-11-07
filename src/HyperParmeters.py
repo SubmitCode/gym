@@ -3,7 +3,7 @@ class HyperParameters:
 
     def __init__(self, action_space):
         ### MODEL HYPERPARAMETERS
-        self.state_size = [94, 76, 4]      # Our input is a stack of 4 frames hence 110x84x4 (Width, height, channels) 
+        self.state_size = [86, 72, 4]      # Our input is a stack of 4 frames hence 110x84x4 (Width, height, channels) 
         self.action_size = action_space    # 8 possible actions
         self.learning_rate =  0.00025      # Alpha (aka learning rate)
 
